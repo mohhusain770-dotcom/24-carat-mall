@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24 Carat Mall</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}/* Cursor */ .cursor { width: 20px; height: 20px; border: 2px solid gold; border-radius: 50%; position: fixed; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.1s ease; z-index: 9999; }
+
+header { text-align: center; padding: 20px; font-size: 2rem; background: linear-gradient(45deg, gold, orange); color: black; }
+
+.hero { height: 100vh; display: flex; justify-content: center; align-items: center; perspective: 1000px; }
+
+.card { width: 300px; height: 200px; background: linear-gradient(145deg, #111, #222); border-radius: 15px; box-shadow: 0 20px 50px rgba(255,215,0,0.3); display: flex; justify-content: center; align-items: center; font-size: 1.5rem; transition: transform 0.3s ease; }
+
+.card:hover { transform: rotateY(20deg) rotateX(10deg) scale(1.05); }
+
+.section { padding: 50px; text-align: center; }
+
+.btn { padding: 10px 20px; background: gold; border: none; color: black; cursor: pointer; border-radius: 5px; transition: 0.3s; }
+
+.btn:hover { background: orange; transform: scale(1.1); }
+
+.fade-in { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+
+.fade-in.visible { opacity: 1; transform: translateY(0); } </style>
+
+</head>
+<body><div class="cursor"></div><header>24 Carat Mall</header><section class="hero">
+  <div class="card">Luxury Experience</div>
+</section><section class="section fade-in">
+  <h2>Welcome to 24 Carat Mall</h2>
+  <p>Experience premium shopping with 3D design and modern animations.</p>
+  <button class="btn">Explore Now</button>
+</section><section class="section fade-in">
+  <h2>Our Services</h2>
+  <p>Food Court | Fashion | Entertainment</p>
+</section><script>
+// Cursor effect
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+// Scroll animation
+const elements = document.querySelectorAll('.fade-in');
+window.addEventListener('scroll', () => {
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 50) {
+      el.classList.add('visible');
+    }
+  });
+});
+</script></body>
+</html>
